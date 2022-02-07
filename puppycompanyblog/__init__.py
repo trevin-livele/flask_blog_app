@@ -1,8 +1,7 @@
 #puppy company blog /__init__.py
-
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import os
 from flask_migrate import Migrate
 from flask_login import LoginManager
 
@@ -25,7 +24,6 @@ Migrate(app,db)
 
 #login configs
 login_manager = LoginManager()
-
 login_manager.init_app(app)
 login_manager.login_view = 'users.login'
 

@@ -1,5 +1,6 @@
 #models.py
 from datetime import datetime
+from email.policy import default
 import imp
 from operator import index
 from turtle import title
@@ -21,7 +22,7 @@ class User(db.Model,UserMixin):
 
 
     id = db.Column(db.Integer,primary_key=True)
-    profile_image = db.Column(db.String(64),nullable=False)
+    profile_image = db.Column(db.String(64),nullable=False,default='default_profile.png')
     email = db.Column(db.String(64),unique=True,index=True)
     username = db.Column(db.string(64),unique=True,index=True)
     password_hash = db.Column(db.String(128))
