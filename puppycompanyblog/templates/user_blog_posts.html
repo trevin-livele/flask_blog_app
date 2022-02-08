@@ -10,10 +10,10 @@
         </div>
     </div>
 
-    {% for post in blog_post.items %}
+    {% for post in blog_posts.items %}
 
     <h2> <a href="{{url_for('blog_post.blog_post',blog_post_id=post.id)}}">{{post.title}}</a> </h2>
-    Written By: <a href="{{url_for('users.user_post',username=post.author.username)}}">{{post.author.username}}</a>
+    Written By: <a href="{{url_for('users.user_posts',username=post.author.username)}}">{{post.author.username}}</a>
     <p class="text-muted">Published on: {{post.date.strftime("%Y-%m-%d")}}</p>
     <br>
     <p>{{post.text}}</p>
@@ -43,3 +43,7 @@
 </nav>
 
 {% endblock %}
+
+<!-- flask db init -->
+<!-- flask db migrate -m "creating users" -->
+<!-- flask db upgrade -->

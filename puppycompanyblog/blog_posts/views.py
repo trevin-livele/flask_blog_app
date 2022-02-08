@@ -2,7 +2,6 @@
 
 from crypt import methods
 from os import abort
-from turtle import title
 from flask import render_template,url_for,flash,request,redirect,Blueprint
 from flask_login import current_user,login_required
 from puppycompanyblog import db

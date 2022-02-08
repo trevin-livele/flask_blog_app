@@ -28,8 +28,6 @@ def register():
 #login
 @users.route('/login',methods=['GET','POST'])
 def login():
-
-
     form = LoginForm()
     if form.validate_on_submit():
 
@@ -42,10 +40,7 @@ def login():
 
             next = request.args.get('next')
             if next ==None or not next[0]=='/':
-
-                next == url_for('core.index')
-
-
+                next = url_for('core.index')
             return redirect(next)
 
     return render_template('login.html',form=form)
