@@ -17,6 +17,7 @@ Jinja2==3.0.3
 Mako==1.1.6
 MarkupSafe==2.0.1
 Pillow==9.0.1
+psycopg2==2.9.3
 SQLAlchemy==1.4.31
 Werkzeug==2.0.3
 WTForms==3.0.1
