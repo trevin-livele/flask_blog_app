@@ -27,7 +27,7 @@
         <a class="nav-item nav-link" href="{{url_for("users.logout")}}">Log out</a>
         <a class="nav-item nav-link" href="{{url_for("users.account")}}">Account</a>
         <a class="nav-item nav-link" href="{{url_for("blog_posts.create_post")}}">Create Post</a>
-        <a class="nav-item nav-link" href="#">Random quotes</a>
+        <a class="nav-item nav-link" href="{{url_for("blog_posts.random_post")}}">Random quotes</a>
         {% else %}
         <a class="nav-item nav-link" href="{{url_for("users.login")}}">Log in</a>
         <a class="nav-item nav-link" href="{{url_for("users.register")}}">Register</a>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Random Posts{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1 class="text-center text-card" style="margin-top: 2rem;">Random Quotes</h1>
+            {% for blog_posts in blog_posts%}
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title text-center text-primary">{{blog_posts.author}}</h5>
+                      <p class="card-text card-paragraph">"{{blog_posts.quote}}"</p>
+                    </div>
+                  </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

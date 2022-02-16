@@ -9,17 +9,26 @@
 <div class="container">
     {% for post in blog_posts.items %}
 
-    <div class="card">
+
+    <div class="card text-center">
+        <div class="card-header">
+            <a href="{{url_for('users.user_posts',username=post.author.username)}}">Written By: {{ post.author.username }}</a>
+        </div>
         <div class="card-body">
             <h2> <a class="card-title" href="{{ url_for('blog_posts.blog_post',blog_post_id=post.id)}}">{{post.title}}</a> </h2>
-           <a href="{{url_for('users.user_posts',username=post.author.username)}}">Written By: {{ post.author.username }}</a>
-           <p>Published on: {{post.date.strftime('%Y-%m-%d')}} </p>
-           <a class="btn btn-primary" href="{{ url_for('blog_posts.blog_post',blog_post_id=post.id)}}">Read Post</a>
-
+          <a class="btn btn-primary" href="{{ url_for('blog_posts.blog_post',blog_post_id=post.id)}}">Read Post</a>
         </div>
+        <div class="card-footer text-muted">
+            <p class="card-text">Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
+        </div>
+      </div>
 
-    </div>
 
+
+
+
+
+      
 
 
     {% endfor %}

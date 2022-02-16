@@ -12,11 +12,9 @@ app.config['SECRET_KEY'] = 'mysecret'
 ######################################
 ####### DATABASE SETUP ###############
 ######################################
-
-# 'postgresql+psycopg2://moringa:ashihundu@localhost/trevblog'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://moringa:ashihundu@localhost/trevblog'
+# 'postgresql+psycopg2://moringa:ashihundu@localhost/pitch'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://moringa:ashihundu@localhost/blog'
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
-print(app.config['SQLALCHEMY_DATABASE_URI'],'db not found')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -45,11 +43,3 @@ app.register_blueprint(core)
 app.register_blueprint(users)
 app.register_blueprint(blog_posts)
 app.register_blueprint(error_pages)
-
-
-
-
-
-# @app.before_first_request
-# def create_user():
-#     db.create_all()
