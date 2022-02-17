@@ -22,15 +22,20 @@
             <p class="card-text">Published on: {{post.date.strftime('%Y-%m-%d')}}</p>
         </div>
       </div>
+<div class="form">
 
+<form action="/create-comment/{{post.id}}" method="POST" class="input-group">
+    <input type="text" id="text" name="text" class="form-control" placeholder="comment here"/>
+    <button type="submit" class="btn btn-primary">comment</button>
+    </form>
+</div>
 
+{% for comment in post.comments%}
+{{comment.user_comments.username}}
 
+{{comment.comment}}
 
-
-
-      
-
-
+{% endfor %}
     {% endfor %}
 </div>
 
@@ -57,7 +62,18 @@
 
 
 
+<form action="" method="POST" class="input-group">
+    <input type="text" id="text" name="text" class="form-control" placeholder="sign in for our newsletter"/>
+    <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+</div>
+
+
+
 
 
 
 {% endblock %}
+
+
+

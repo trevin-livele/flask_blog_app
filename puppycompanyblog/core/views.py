@@ -1,5 +1,5 @@
 # core/views.py
-from puppycompanyblog.models import BlogPost
+from puppycompanyblog.models import BlogPost,Comment
 from flask import render_template,request,Blueprint
 from puppycompanyblog import db
 
@@ -12,7 +12,8 @@ def index():
     db.create_all()
     page = request.args.get('page',1,type=int)
     blog_posts = BlogPost.query.order_by(BlogPost.date.desc()).paginate(page = page,per_page=5)
-    return render_template('index.html',blog_posts=blog_posts)
+    comments = Comment.query.all()
+    return render_template('index.html',blog_posts=blog_posts,comments=comments)
 
 @core.route('/info')
 def info():

@@ -6,8 +6,9 @@ from os import abort
 from flask import render_template,url_for,flash,request,redirect,Blueprint
 from flask_login import current_user,login_required
 from puppycompanyblog import db
-from puppycompanyblog.models import BlogPost
+from puppycompanyblog.models import BlogPost,Comment
 from puppycompanyblog.blog_posts.forms import BlogPostForm
+
 
 
 blog_posts = Blueprint('blog_posts',__name__)
@@ -17,8 +18,40 @@ blog_posts = Blueprint('blog_posts',__name__)
 def random_post():
     blog_posts = requests.get('http://quotes.stormconsultancy.co.uk/quotes.json')
     blog_posts = blog_posts.json()
-    
     return render_template('random.html', blog_posts=blog_posts)
+
+
+
+
+@blog_posts.route("/create-comment/<post_id>", methods=['POST', 'GET'])
+@login_required
+def commets(post_id):
+    comment = request.form.get('text')
+    post = BlogPost.query.filter_by(id=post_id)
+    if post:
+        comments = Comment(comment=comment, author_comment=current_user.id, posts_id=post_id )
+        db.session.add(comments)
+        db.session.commit()
+    return redirect(url_for('core.index'))
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #CREATE
